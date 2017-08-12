@@ -8,6 +8,7 @@ defmodule LibraryApp.Book do
     field :price, :string
     field :picture, :string
     field :isbn, :string
+    belongs_to :user, LibraryApp.User
 
     timestamps()
   end
@@ -17,7 +18,7 @@ defmodule LibraryApp.Book do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:title, :author, :publisher, :price, :picture, :isbn])
+    |> cast(params, [:title, :author, :publisher, :price, :picture, :isbn, :user_id])
     |> validate_required([:title, :author, :publisher, :price, :picture, :isbn])
   end
 end

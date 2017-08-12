@@ -6,7 +6,6 @@ defmodule LibraryApp.Repo.Migrations.CreateUser do
       add :name, :string
       add :phone, :string
       add :address, :string
-      add :id, :string
 
       timestamps()
     end
