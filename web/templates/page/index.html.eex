@@ -1,9 +1,14 @@
 <div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
+  <h2><%= gettext "Welcome to %{name}", name: "the First Library App!" %></h2>
   <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
 </div>
-
-<div class="row marketing">
+<div class="back" id="red">
+phoenix
+</div>
+<div class="back" id="blue">
+framework
+</div>
+<div class="row marketing back" >
   <div class="col-lg-6">
     <h4>Resources</h4>
     <ul>
