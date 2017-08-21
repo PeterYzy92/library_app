@@ -1,6 +1,6 @@
 <h2>Listing books</h2>
 
-<table class="table">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Title</th>
