@@ -34,3 +34,6 @@
     </ul>
   </div>
 </div>
+
+
+<%= link "users", to: user_path(@conn, :index), class: "btn btn-default" %>
