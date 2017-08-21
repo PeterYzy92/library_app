@@ -3,7 +3,6 @@ defmodule LibraryApp.BookController do
 
   alias LibraryApp.Book
  
-  require IEx
   def index(conn, _params) do
     books = Repo.all(Book)
     render(conn, "index.html", books: books)
