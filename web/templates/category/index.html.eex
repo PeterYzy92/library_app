@@ -3,26 +3,20 @@
 <table class="table">
   <thead>
     <tr>
-<<<<<<< HEAD
+
       <th>Language</th>
-=======
-      <th>Lauagage</th>
->>>>>>> 2706965a79bd141f386b51b9c5c01dc676cdb959
+
       <th>Age group</th>
 
       <th></th>
     </tr>
   </thead>
   <tbody>
-<<<<<<< HEAD
+
 <%= for category <- @categorieses do %>
     <tr>
       <td><%= category.language %></td>
-=======
-<%= for category <- @categories do %>
-    <tr>
-      <td><%= category.lauagage %></td>
->>>>>>> 2706965a79bd141f386b51b9c5c01dc676cdb959
+
       <td><%= category.age_group %></td>
 
       <td class="text-right">

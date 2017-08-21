@@ -3,11 +3,9 @@ defmodule LibraryApp.CategoryTest do
 
   alias LibraryApp.Category
 
-<<<<<<< HEAD
+
   @valid_attrs %{age_group: "some age_group", language: "some language"}
-=======
-  @valid_attrs %{age_group: "some age_group", lauagage: "some lauagage"}
->>>>>>> 2706965a79bd141f386b51b9c5c01dc676cdb959
+
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

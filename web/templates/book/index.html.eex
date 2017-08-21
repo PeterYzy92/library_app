@@ -1,10 +1,7 @@
 <h2>Listing books</h2>
 
-<<<<<<< HEAD
 <table class="table table-bordered">
-=======
-<table class="table table-striped table-hover">
->>>>>>> 2706965a79bd141f386b51b9c5c01dc676cdb959
+
   <thead>
     <tr>
       <th>Title</th>

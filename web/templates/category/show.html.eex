@@ -3,13 +3,10 @@
 <ul>
 
   <li>
-<<<<<<< HEAD
+
     <strong>Language:</strong>
     <%= @category.language %>
-=======
-    <strong>Lauagage:</strong>
-    <%= @category.lauagage %>
->>>>>>> 2706965a79bd141f386b51b9c5c01dc676cdb959
+
   </li>
 
   <li>
