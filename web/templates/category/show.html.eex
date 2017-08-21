@@ -1,0 +1,18 @@
+<h2>Show category</h2>
+
+<ul>
+
+  <li>
+    <strong>Language:</strong>
+    <%= @category.language %>
+  </li>
+
+  <li>
+    <strong>Age group:</strong>
+    <%= @category.age_group %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: category_path(@conn, :edit, @category) %></span>
+<span><%= link "Back", to: category_path(@conn, :index) %></span>
