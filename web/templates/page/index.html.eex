@@ -41,7 +41,11 @@ framework
 </div>
 
 
-<%= link "users", to: user_path(@conn, :index), class: "btn btn-default" %>
+<%= link "users", to: user_path(@conn, :index), class: "btn btn-danger" %>
+<%= link "books", to: book_path(@conn, :index), class: "btn btn-primary" %>
+<%= link "categories", to: category_path(@conn, :index), class: "btn btn-success" %>
+<%# link "categories", to: category_path(@conn, :index), class: "btn btn-default" %>
+<div class="btn btn-success">Loan</div>
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
