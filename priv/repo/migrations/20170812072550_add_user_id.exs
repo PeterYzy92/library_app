@@ -3,7 +3,7 @@ defmodule LibraryApp.Repo.Migrations.AddUserId do
 
   def change do
   	alter table(:books) do 
-  		add :user_id, references(:users)
+  	add :user_id, references(:users)
   	end
   end
 end

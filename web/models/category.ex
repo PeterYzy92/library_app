@@ -16,9 +16,7 @@ defmodule LibraryApp.Category do
   """
   def changeset(struct, params \\ %{}) do
     struct
-
     |> cast(params, [:language, :age_group])
     |> validate_required([:language, :age_group])
-
   end
 end

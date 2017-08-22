@@ -20,6 +20,6 @@ defmodule LibraryApp.Book do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:title, :author, :publisher, :price, :picture, :isbn, :user_id, :category_id])
-    |> validate_required([:title, :author, :publisher, :price, :picture, :isbn])
+    |> validate_required([:title ])
   end
 end

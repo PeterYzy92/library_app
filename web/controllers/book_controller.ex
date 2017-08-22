@@ -5,7 +5,7 @@ defmodule LibraryApp.BookController do
 
  
 
-  require IEx
+
   def index(conn, _params) do
     books = Repo.all(Book)
     render(conn, "index.html", books: books)
