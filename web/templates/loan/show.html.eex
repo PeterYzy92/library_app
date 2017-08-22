@@ -1,0 +1,33 @@
+<h2>Show loan</h2>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= username(@loan.user_id) %>
+  </li>
+
+  <li>
+    <strong>Borrow date:</strong>
+    <%= @loan.borrow_date %>
+  </li>
+
+  <li>
+    <strong>Return date:</strong>
+    <%= @loan.return_date %>
+  </li>
+
+  <li>
+    <strong>Due date:</strong>
+    <%= @loan.due_date %>
+  </li>
+
+  <li>
+    <strong>Overdue fee:</strong>
+    <%= @loan.overdue_fee %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: loan_path(@conn, :edit, @loan) %></span>
+<span><%= link "Back", to: loan_path(@conn, :index) %></span>

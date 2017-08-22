@@ -4,15 +4,10 @@ defmodule LibraryApp.CategoryController do
   alias LibraryApp.Category
 
   def index(conn, _params) do
-<<<<<<< HEAD
-    categories = Repo.all(Category)
-    render(conn, "index.html", categories: categories)
-=======
 
     categories = Repo.all(Category)
     render(conn, "index.html", categories: categories)
 
->>>>>>> 07574f51e4fc796baa465fc9a9faab48eb9a55d7
   end
 
   def new(conn, _params) do
