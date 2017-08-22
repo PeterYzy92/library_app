@@ -6,9 +6,17 @@
   <% end %>
 
   <div class="form-group">
+<<<<<<< HEAD
     <%= label f, :language, class: "control-label" %>
     <%= text_input f, :language, class: "form-control" %>
     <%= error_tag f, :language %>
+=======
+
+    <%= label f, :language, class: "control-label" %>
+    <%= text_input f, :language, class: "form-control" %>
+    <%= error_tag f, :language %>
+
+>>>>>>> 07574f51e4fc796baa465fc9a9faab48eb9a55d7
   </div>
 
   <div class="form-group">

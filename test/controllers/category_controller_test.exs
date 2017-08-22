@@ -2,12 +2,24 @@ defmodule LibraryApp.CategoryControllerTest do
   use LibraryApp.ConnCase
 
   alias LibraryApp.Category
+<<<<<<< HEAD
   @valid_attrs %{age_group: "some age_group", language: "some language"}
+=======
+
+  @valid_attrs %{age_group: "some age_group", language: "some language"}
+
+>>>>>>> 07574f51e4fc796baa465fc9a9faab48eb9a55d7
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, category_path(conn, :index)
+<<<<<<< HEAD
     assert html_response(conn, 200) =~ "Listing categories"
+=======
+
+    assert html_response(conn, 200) =~ "Listing categories"
+
+>>>>>>> 07574f51e4fc796baa465fc9a9faab48eb9a55d7
   end
 
   test "renders form for new resources", %{conn: conn} do
