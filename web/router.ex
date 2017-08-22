@@ -19,6 +19,7 @@ defmodule LibraryApp.Router do
     get "/", PageController, :index
     resources "/books", BookController
      resources "/users", UserController
+     resources "/categories", CategoryController
   end
 
   # Other scopes may use custom stacks.
