@@ -47,6 +47,7 @@ framework
 <%# link "loans", to: loan_path(@conn, :index), class: "btn btn-danger" %>
 <div class= "btn btn-danger"> Loan </div>
 
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">

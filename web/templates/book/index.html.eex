@@ -1,7 +1,7 @@
 <h2>Listing books</h2>
 
 <table class="table table-bordered">
-
+<%# < raw(panel_block) %> 
   <thead>
     <tr>
       <th>Title</th>
@@ -34,5 +34,7 @@
   </tbody>
 </table>
 
+
 <span><%= link "New book", to: book_path(@conn, :new) %></span>
 <%= link "Home", to: page_path(@conn, :index), class: "btn btn-success" %>
+

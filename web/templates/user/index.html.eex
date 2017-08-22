@@ -1,5 +1,4 @@
 <h2>Listing users</h2>
-
 <table class="table">
   <thead>
     <tr>
@@ -31,3 +30,4 @@
 
 <span><%= link "New user", to: user_path(@conn, :new) %></span>
 <%= link "Home", to: page_path(@conn, :index), class: "btn btn-success" %>
+
