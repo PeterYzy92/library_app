@@ -29,7 +29,6 @@
   </tbody>
 </table>
 
-<span>
-  <%= link "New category", to: category_path(@conn, :new) %>
-  <%= link "Home", to: page_path(@conn, :index) %>
-</span>
+<span><%= link "New category", to: category_path(@conn, :new) %></span>
+<%= link "Home", to: page_path(@conn, :index), class: "btn btn-success" %>
+
