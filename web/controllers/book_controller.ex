@@ -2,7 +2,10 @@ defmodule LibraryApp.BookController do
   use LibraryApp.Web, :controller
 
   alias LibraryApp.Book
+
  
+
+
   def index(conn, _params) do
     books = Repo.all(Book)
     render(conn, "index.html", books: books)
@@ -15,6 +18,7 @@ defmodule LibraryApp.BookController do
 
   def create(conn, %{"book" => book_params}) do
     changeset = Book.changeset(%Book{}, book_params)
+    # IEx.pry
 
     case Repo.insert(changeset) do
       {:ok, book} ->
