@@ -3,6 +3,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>User</th>
       <th>Borrow date</th>
       <th>Return date</th>
@@ -15,6 +16,7 @@
   <tbody>
 <%= for loan <- @loans do %>
     <tr>
+     <td><%= loan.id %></td>
       <td><%= username(loan.user_id) %></td>
       <td><%= loan.borrow_date %></td>
       <td><%= loan.return_date %></td>
@@ -22,6 +24,7 @@
       <td><%= loan.overdue_fee %></td>
 
       <td class="text-right">
+        <span><%= link "Return", to: loan_path(@conn, :return, loan), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Show", to: loan_path(@conn, :show, loan), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Edit", to: loan_path(@conn, :edit, loan), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Delete", to: loan_path(@conn, :delete, loan), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
