@@ -21,6 +21,7 @@ defmodule LibraryApp.Router do
     resources "/users", UserController
     resources "/categories", CategoryController
     resources "/loans", LoanController
+    get "/return", LoanController, :return
   end
 
   # Other scopes may use custom stacks.

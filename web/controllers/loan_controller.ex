@@ -9,7 +9,7 @@ defmodule LibraryApp.LoanController do
   end
 
   def new(conn, _params) do
-    changeset = Loan.changeset(%Loan{})
+    changeset = Loan.changeset(%Loan{}, %{:borrow_date => Timex.now, :due_date => Timex.shift(Timex.now, weeks: 2)})
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -62,4 +62,12 @@ defmodule LibraryApp.LoanController do
     |> put_flash(:info, "Loan deleted successfully.")
     |> redirect(to: loan_path(conn, :index))
   end
+
+  def return(conn, params) do
+    title2 = "Return Function"
+    changeset = Loan.changeset(%Loan{}, %{:return_date => Timex.now})
+    action = loan_path(conn, :create)
+    render(conn, "return.html", title3: title2, changeset: changeset, action: action)
+  end
 end
+
