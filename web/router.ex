@@ -21,7 +21,9 @@ defmodule LibraryApp.Router do
     resources "/users", UserController
     resources "/categories", CategoryController
     resources "/loans", LoanController
-    get "/return/:id", LoanController, :return
+    get "/return", LoanController, :return
+    get "/return_list", LoanController, :return_list
+    get "return_user", LoanController, :return_user
    
    
   end

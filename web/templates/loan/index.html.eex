@@ -21,10 +21,10 @@
       <td><%= loan.borrow_date %></td>
       <td><%= loan.return_date %></td>
       <td><%= loan.due_date %></td>
-      <td><%= loan.overdue_fee %></td>
+      <td></td>
 
       <td class="text-right">
-        <span><%= link "Return", to: loan_path(@conn, :return, loan), class: "btn btn-default btn-xs" %></span>
+        
         <span><%= link "Show", to: loan_path(@conn, :show, loan), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Edit", to: loan_path(@conn, :edit, loan), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Delete", to: loan_path(@conn, :delete, loan), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
@@ -35,3 +35,4 @@
 </table>
 
 <span><%= link "New loan", to: loan_path(@conn, :new) %></span>
+<span><%= link "Return", to: loan_path(@conn, :return), class: "btn btn-default" %></span>

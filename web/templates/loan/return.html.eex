@@ -1,53 +1,17 @@
-<%= form_for @changeset, @action, fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
-    </div>
-  <% end %>
+<h3>Return</h3>
 
-  <div class="form-group">
-    <%= label f, :user_id, class: "control-label" %>
-    <%= select f, :user_id, ["Peter": "1", "Damien": "2"], class: "form-control" %>
-    <%= error_tag f, :user_id %>
-  </div>
+<p>Choose a user to start the return process.</p>
 
-  <div class="form-group">
-    <%= label f, :book_id, class: "control-label" %>
-    <%= select f, :book_id, ["Mary Poppins": "1", "Peter Pan": "2"], class: "form-control" %>
-    <%= error_tag f, :user_id %>
-  </div>
+<table class="table">
+	<tr>
+		<th>User</th>
+		<th>Action</th>
+	</tr>
 
-<%= label f, :borrow_date, class: "control-label" %>
-  <%= borrowdate(@loan_id)%> 
-
-  <!--
-  <div class="form-group">
-    <%= label f, :borrow_date, class: "control-label" %>
-    <%= date_select f, :borrow_date, class: "form-control" %>
-    <%= error_tag f, :borrow_date %>
-  </div>
-   -->
-  <div class="form-group">
-    <%= label f, :return_date, class: "control-label" %>
-    <%= date_select f, :return_date, class: "form-control" %>
-    <%= error_tag f, :return_date %>
-  </div>
-
-<!--
-  <div class="form-group">
-    <%= label f, :due_date, class: "control-label" %>
-    <%= date_select f, :due_date, class: "form-control" %>
-    <%= error_tag f, :due_date %>
-  </div>
--->
-
-  <div class="form-group">
-    <%= label f, :overdue_fee, class: "control-label" %>
-    <%= number_input f, :overdue_fee, step: "any", class: "form-control" %>
-    <%= error_tag f, :overdue_fee %>
-  </div>
-
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
-  </div>
-<% end %>
+	<%= for user <- @users do %>
+	<tr>
+		<td><%= user.name %></td>
+		<td><%= link "Choose", to: loan_path(@conn, :return_list, user_id: user.id), class: "btn btn-primary" %></td>
+	</tr>
+	<% end %>
+</table>

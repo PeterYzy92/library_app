@@ -1,7 +1,7 @@
 defmodule LibraryApp.LoanController do
   use LibraryApp.Web, :controller
 
-  alias LibraryApp.Loan
+  alias LibraryApp.{Loan, Book, User}
   require IEx
   def index(conn, _params) do
     loans = Repo.all(Loan)
@@ -9,8 +9,11 @@ defmodule LibraryApp.LoanController do
   end
 
   def new(conn, _params) do
+    books = Repo.all(from b in Book)
+     a = Enum.map(books, fn x -> {x.title, x.id} end) 
+    # IEx.pry
     changeset = Loan.changeset(%Loan{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, a: a)
   end
 
   def create(conn, %{"loan" => loan_params}) do
@@ -63,13 +66,40 @@ defmodule LibraryApp.LoanController do
     |> redirect(to: loan_path(conn, :index))
   end
 
-   def return(conn, params) do
-    #IEx.pry
-    title = "Return Function"
+  def return(conn, params) do
+    
+    user_list = Repo.all(from u in User)
+
+    render(conn, "return.html", users: user_list)
+  end
+
+  def return_list(conn, params) do
+    user_id = params["user_id"]
+    user = Repo.get(User, user_id)
+    borrowed_books = Repo.all(
+      from l in Loan, 
+      join: b in Book, on: b.id == l.book_id,
+      where: l.user_id == ^user_id,
+      select: %{:id => l.id, :title => b.title }
+      )
+
+    # this should show a list of books borrowed by the user.
+
+    render(conn, "return_list.html", borrowed_books: borrowed_books, user: user)
+  end
+
+   def return_user(conn, params) do
+    loan_id = params["loan_id"]
+    loan = Repo.get(Loan, loan_id)
+    user = Repo.get(User, loan.user_id)
+    book = Repo.get(Book, loan.book_id)
     x = Timex.now
-    changeset = Loan.changeset(Repo.get(Loan, params["id"]), %{:return_date => x})
-    action = loan_path(conn, :update, params["id"])
-    render(conn, "return.html", changeset: changeset, action: action, loan_id: params["id"])
+    changeset = Loan.changeset(loan, %{:return_date => x})
+    action = loan_path(conn, :update, loan_id)
+    render(conn, "return_user.html", changeset: changeset, action: action, loan_id: loan_id, user: user, book: book)
     
   end
+
+
+
 end
