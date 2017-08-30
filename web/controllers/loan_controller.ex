@@ -2,7 +2,7 @@ defmodule LibraryApp.LoanController do
   use LibraryApp.Web, :controller
 
   alias LibraryApp.Loan
-
+  require IEx
   def index(conn, _params) do
     loans = Repo.all(Loan)
     render(conn, "index.html", loans: loans)
@@ -61,5 +61,15 @@ defmodule LibraryApp.LoanController do
     conn
     |> put_flash(:info, "Loan deleted successfully.")
     |> redirect(to: loan_path(conn, :index))
+  end
+
+   def return(conn, params) do
+    #IEx.pry
+    title = "Return Function"
+    x = Timex.now
+    changeset = Loan.changeset(Repo.get(Loan, params["id"]), %{:return_date => x})
+    action = loan_path(conn, :update, params["id"])
+    render(conn, "return.html", changeset: changeset, action: action, loan_id: params["id"])
+    
   end
 end
