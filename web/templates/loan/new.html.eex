@@ -1,6 +1,6 @@
 <h2>New loan</h2>
 
 <%= render "form.html", changeset: @changeset,
-                        action: loan_path(@conn, :create) %>
+                        action: loan_path(@conn, :create), book: @book, user: @user%>
 
 <span><%= link "Back", to: loan_path(@conn, :index) %></span>
