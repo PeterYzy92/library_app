@@ -1,0 +1,3 @@
+<script src="<%= static_path(@conn, "/js/jquery.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/jquery-ui.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/bootstrap.js") %>"></script>
