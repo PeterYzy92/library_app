@@ -22,6 +22,7 @@ defmodule LibraryApp.Router do
     resources "/categories", CategoryController
     resources "/loans", LoanController
     get "/return/:id", LoanController, :return
+    
    
    
   end

@@ -7,13 +7,13 @@
 
   <div class="form-group">
     <%= label f, :user_id, class: "control-label" %>
-    <%= select f, :user_id, ["Peter": "1", "Damien": "2"], class: "form-control" %>
+    <%= select f, :user_id, @user_id, class: "form-control" %>
     <%= error_tag f, :user_id %>
   </div>
 
   <div class="form-group">
     <%= label f, :book_id, class: "control-label" %>
-    <%= select f, :book_id, ["Mary Poppins": "1", "Peter Pan": "2"], class: "form-control" %>
+    <%= select f, :book_id, @book_id, class: "form-control" %>
     <%= error_tag f, :user_id %>
   </div>
 

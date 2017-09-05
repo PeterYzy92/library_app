@@ -2,6 +2,8 @@ defmodule LibraryApp.LoanController do
   use LibraryApp.Web, :controller
 
   alias LibraryApp.Loan
+  alias LibraryApp.{Repo, User, Book}
+  
   require IEx
   def index(conn, _params) do
     loans = Repo.all(Loan)
@@ -9,8 +11,14 @@ defmodule LibraryApp.LoanController do
   end
 
   def new(conn, _params) do
-    changeset = Loan.changeset(%Loan{})
-    render(conn, "new.html", changeset: changeset)
+    x = Timex.now
+    changeset = Loan.changeset(%Loan{}, %{:borrow_date => x})
+    userquery = from u in User
+    users = Repo.all(userquery)
+    bookquery = from b in Book
+    books = Repo.all(bookquery)
+    render(conn, "new.html", changeset: changeset, 
+    user_id: Enum.map(users, fn x -> {x.name, x.id} end), book_id: Enum.map(books, fn x -> {x.title, x.id} end))
   end
 
   def create(conn, %{"loan" => loan_params}) do
@@ -65,11 +73,18 @@ defmodule LibraryApp.LoanController do
 
    def return(conn, params) do
     #IEx.pry
-    title = "Return Function"
+    
     x = Timex.now
     changeset = Loan.changeset(Repo.get(Loan, params["id"]), %{:return_date => x})
     action = loan_path(conn, :update, params["id"])
-    render(conn, "return.html", changeset: changeset, action: action, loan_id: params["id"])
+    userquery = from u in User
+    users = Repo.all(userquery)
+    bookquery = from b in Book
+    books = Repo.all(bookquery)
+
+    render(conn, "return.html", changeset: changeset, action: action, loan_id: params["id"], user_id: Enum.map(users, fn x -> {x.name, x.id} end) , book_id: Enum.map(books, fn x -> {x.title, x.id} end))
     
   end
+
+
 end
