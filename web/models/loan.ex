@@ -17,6 +17,6 @@ defmodule LibraryApp.Loan do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:borrow_date, :return_date, :due_date, :overdue_fee, :book_id, :user_id])
-    |> validate_required([:borrow_date, :return_date, :due_date, :user_id, :book_id])
+    #|> validate_required([:borrow_date, :return_date, :due_date, :user_id, :book_id])
   end
 end
